@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <script src="./../../../bower_components/angular/angular.min.js"></script>
+    <script src="nginit.js"></script>
+    <title></title>
+</head>
+<body>
+<div ng-controller="GreetCtrl">
+    Hello {{ name }}!
+</div>
+<div ng-controller="ListCtrl">
+    <ol>
+        <li ng-repeat="name in names">{{name}}</li>
+    </ol>
+</div>
+</body>
+</html>

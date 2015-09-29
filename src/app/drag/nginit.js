@@ -1,0 +1,11 @@
+/**
+ *
+ * Created by weizwang on 2015/9/29.
+ */
+function GreetCtrl($scope){
+    $scope.name="World";
+}
+
+function ListCtrl($scope){
+    $scope.names=['Igor','Misko','Vojta']
+}
