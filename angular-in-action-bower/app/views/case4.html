@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css">
+</head>
+<form name="passwordForm">
+    <label>Password</label>
+    <input class="span6" type="password" name="password" ng-model="user.password" required>
+    <span ng-show="passwordForm['password'].$error['required']" class="help-inline">This field is required.</span>
+    <span ng-show="passwordForm['passwordRepeat'].$error['equal']" class="help-inline">Passwords do not match.</span>
+    <label>Password (repeat)</label>
+    <input class="span6" type="password" name="passwordRepeat" ng-model="password" required validate-equals="user.password">
+    <span ng-show="passwordForm['passwordRepeat'].$error['required']" class="help-inline">This field is required.</span>
+    <span ng-show="passwordForm['passwordRepeat'].$error['equal']" class="help-inline">Passwords do not match.</span>
+</form>
+</body>
+<script src="../../bower_components/angular/angular.js"></script>
+<script src="../scripts/app.js"></script>
+<script src="../scripts/directive.js"></script>
+<script src="../scripts/controller.js"></script>
+</html>
