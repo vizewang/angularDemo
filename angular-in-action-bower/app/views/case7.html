@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../../bower_components/jquery-ui/jquery-ui.js"></script>
+    <script src="../../bower_components/jquery-ui/ui/datepicker.js"></script>
+    <script src="../../bower_components/angular/angular.js"></script>
+    <script src="../scripts/app.js"></script>
+    <script src="../scripts/directive.js"></script>
+    <script src="../scripts/controller.js"></script>
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css">
+</head>
+<div ng-controller="MyCtrl">
+    parent scope:{{name}}
+    <input ng-model="name2">
+    <myd ng-model="name2" test1="t">{{name2}}</myd>
+</div>
+</body>
+
+</html>

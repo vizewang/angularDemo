@@ -9,3 +9,8 @@ expanderModule.controller('SomeCtrl',['$scope',function($scope){
     $scope.title='点击展开';
     $scope.text='这里是内部的内容';
 }])
+
+appModule.controller('MyCtrl',['$scope',function(scope){
+    scope.name="Artem";
+    scope.name2="vize";
+}])

@@ -168,6 +168,22 @@ appModule.directive('datePicker', function () {
     };
 })
 
+appModule.directive('myd', function($timeout) {
+    return {
+        restrict: 'E',
+        template: '<div>isolate scope: name={{name}}----name2={{name2}}</div>',
+        require: 'ngModel',
+        scope: { name2: '=ngModel',test:'@test1'},
+        link: function(scope, el, attrs, ctrl) {
+            console.log(scope.name2, scope);
+            console.log(scope.test);
+            console.log(ctrl.$viewValue.currentText,ctrl.$modelValue)
+            $timeout(function() {
+                ctrl.$setViewValue('Mark');
+            }, 2000);
+        }
+    }
+})
 expanderModule.directive('expander', function() {
     return {
         restrict : 'EA',
