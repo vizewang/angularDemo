@@ -186,6 +186,23 @@ appModule.directive('myd', function($timeout) {
         }
     }
 })
+
+appModule.directive('alert', function () {
+    return {
+        restrict:'EA',
+        replace: true,
+        template:
+        '<div class="alert alert-{{type || \'info\'}}">' +
+        '<button type="button" class="close" ng-click="close()">&times;</button>' +
+        '<div ng-transclude></div>' +
+        '</div>',
+        transclude:'element',
+        scope:{
+            type:'=',
+            close:'&'
+        }
+    };
+});
 expanderModule.directive('expander', function() {
     return {
         restrict : 'EA',
