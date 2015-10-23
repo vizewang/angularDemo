@@ -172,11 +172,14 @@ appModule.directive('myd', function($timeout) {
     return {
         restrict: 'E',
         template:function(element,attr){
-            console.log(attr.noModel)
+            console.log(attr['ngModel']);
+            console.log(attr['test1']);
+            console.log(element);
             return '<div>isolate scope: name={{name}}----name2={{name2}}</div>'},
         require: 'ngModel',
         scope: { name2: '=ngModel',test:'@test1'},
         link: function(scope, el, attrs, ctrl) {
+            //scope.
             //console.log(scope.name2, scope);
             //console.log(scope.test);
             //console.log(ctrl.$viewValue.currentText,ctrl.$modelValue)
