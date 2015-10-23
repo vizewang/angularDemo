@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <title></title>
+    <script language="JavaScript">
+        var count = 0;
+        var logText=function(text){
+            count++;
+            console.log(count+'，'+text);
+        };
+        angular.module("app", [])
+                .controller("mainController", function ($scope) {
+                    $scope.logText = logText;
+                    logText('控制器初始化。');
+                }).directive('d',function() {
+                    logText('指令初始化。');
+                    return{
+                        link: {
+                            pre: function () {
+                                logText('preLink函数执行。');
+                            },
+                            post: function () {
+                                logText('postLink函数执行。');
+                            }
+                        },
+                        controller:function(){
+                            logText('内部控制器初始化。');
+                        },
+                        template:'{{logText("模板表达式执行。")}}'
+
+                    };
+                });
+    </script>
+</head>
+<body ng-app="app">
+<div ng-controller="mainController">
+    <div d></div>
+    <div d></div>
+</div>
+</body>
+</html>
