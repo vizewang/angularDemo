@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src=""></script>
+    <title></title>
+    <script language="JavaScript">
+        var count = 0;
+        var logText=function(text){
+            count++;
+            console.log(count+'，'+text);
+        };
+        angular.module("app", [])
+                .controller("mainController", function ($scope) {
+                    $scope.logText = logText;
+                    logText('mainController控制器初始化。');
+                }).directive('d1',function() {
+                    logText('d1 指令初始化。');
+                    return{
+                        priority:1,
+                        compile: function(){
+                            logText('d1 编译函数执行。');
+                            return{
+                                pre: function () {
+                                    logText('d1 preLink函数执行。');
+                                },
+                                post: function () {
+                                    logText('d1 postLink函数执行。');
+                                }
+                            };
+                        },
+                        controller:function(){
+                            logText('d1 内部控制器初始化。');
+                        }
+                    };
+                }).directive('d2',function() {
+                    logText('d2 指令初始化。');
+                    return{
+                        compile: function(){
+                            logText('d2 编译函数执行。');
+                            return{
+                                pre: function () {
+                                    logText('d2 preLink函数执行。');
+                                },
+                                post: function () {
+                                    logText('d2 postLink函数执行。');
+                                }
+                            };
+                        },
+                        controller:function(){
+                            logText('d2 内部控制器初始化。');
+                        }
+                    };
+                });
+    </script>
+</head>
+<body ng-app="app">
+<div ng-controller="mainController">
+    <div d1 d2></div>
+</div>
+</body>
+</html>
